@@ -260,7 +260,7 @@ S → aSb → a(aSb)b → a(a(ab)b)b = aaabbbb
       Árbol 2: cte + (cte * cte)
 
       Estos dan resultados numéricos diferentes. Para eliminar la ambigüedad, se necesitaría definir precedencia de operadores o usar una gramática no ambigua.
-      
+
 8. Dada la siguiente Gramática Formal:
 
       ```plain
@@ -270,7 +270,84 @@ S → aSb → a(aSb)b → a(a(ab)b)b = aaabbbb
       ```
 
       1. Construya el árbol de derivación para generar el identificador R_X_A
-      1. Verifique, mediante derivación, que A__B (hay dos guiones bajos consecutivos) no es un identificador válido para el lenguaje de programación
+
+                   Identificador
+              /             |        \
+      Identificador       GuiónBajo  Letra
+            /       |   \       |      |
+      Identificador _ Letra     _         A
+         |              |
+       Letra             X
+         |
+         R
+
+         Identificador → Identificador GuiónBajo Letra
+               → Identificador GuiónBajo Letra GuiónBajo Letra
+               → Letra GuiónBajo Letra GuiónBajo Letra
+               → R _ Letra _ A
+               → R _ X _ A
+               → R_X_A
+               
+
+      2. Verifique, mediante derivación, que A__B (hay dos guiones bajos consecutivos) no es un identificador válido para el lenguaje de programación
+
+      Cadena: A__B (dos guiones bajos consecutivos)
+
+      Intentemos derivar "A__B":
+
+      Opción 1:
+      Identificador → Identificador GuiónBajo Letra
+               → Letra GuiónBajo Letra
+               → A _ Letra
+               → A _ B = A_B  ❌ (solo genera un guión bajo)
+
+      Opción 2:
+            Identificador → Identificador GuiónBajo Letra
+               → Identificador GuiónBajo Letra GuiónBajo Letra
+               → Letra GuiónBajo Letra GuiónBajo Letra
+               → A _ Letra _ B
+               → A _ X _ B = A_X_B  ❌ (tiene una letra entre los guiones)
+
+      Opción 3:
+
+            Identificador → Identificador GuiónBajo Letra
+               → Identificador GuiónBajo Letra
+               → Identificador GuiónBajo Letra GuiónBajo Letra
+               → Letra GuiónBajo Letra GuiónBajo Letra
+               → A _ B _ B = A_B_B  ❌ (tiene letras entre guiones)
+
+      Análisis del problema:
+
+      La gramática NO permite dos guiones bajos consecutivos porque:
+
+      La producción es: Identificador GuiónBajo Letra
+
+      Esto significa que siempre debe haber una Letra después de cada GuiónBajo
+
+      No existe producción que permita GuiónBajo GuiónBajo
+
+      No existe producción que permita Identificador GuiónBajo GuiónBajo
+
+      Conclusión: "A__B" NO es un identificador válido según esta gramática.
+      ---
+      Patrón generado por la gramática
+      
+      La gramática genera identificadores con el patrón:
+
+      Empieza con letra
+
+      Puede tener letras adicionales
+
+      Puede tener _Letra (guión bajo seguido de exactamente una letra)
+
+      NO permite guiones bajos consecutivos
+
+      NO permite guión bajo al final
+
+      NO permite guión bajo al inicio
+
+      Ejemplos válidos: A, AB, A_B, A_B_C, ABC_D
+      Ejemplos inválidos: A__, A, A_B, A__B
 
 9. Dada la siguiente Gramática Formal:
 
