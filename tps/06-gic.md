@@ -329,7 +329,7 @@ S → aSb → a(aSb)b → a(a(ab)b)b = aaabbbb
       No existe producción que permita Identificador GuiónBajo GuiónBajo
 
       Conclusión: "A__B" NO es un identificador válido según esta gramática.
-      ---
+      ----
       Patrón generado por la gramática
       
       La gramática genera identificadores con el patrón:
@@ -437,6 +437,24 @@ S → aSb → a(aSb)b → a(a(ab)b)b = aaabbbb
 32. {w / w ∈ {a, b, c}*, la cantidad de a es impar en w, y no se puede dar la subpalabra bc}
 33. {ww^(-1) / w,w^(-1) ∈ Σ*}  Σ = {a,b}
 34. {a^(2k)b^(2n)c^kd^j / k, n, j ≥ 0 } Ʃ = {a, b, c, d}
+
+9. {x^my^n / n y m son enteros no negativos y 2m ≥ n ≥ m}
+    La condición 2m>n>m significa:
+      
+      n>m m (más a's que b's)
+      n<2m(menos del doble de b's)
+
+      Derivaciones de ejemplo:
+      a^3 b^2(n=3,m=2,4>3>2)
+
+      S → a A → a a A b → a a B b → a a a b b
+o
+      S → a S b
+      S → a A
+      A → a A b
+      A → B
+      B → a B
+      B → a
 
 ## Ejercicios diseño GIC que genera el LIC definido coloquialmente
 
