@@ -409,9 +409,32 @@ S → aSb → a(aSb)b → a(a(ab)b)b = aaabbbb
 4. {x^ny^m / m, n ≥ 0 y m = n ó m = 2n}
 5. {0^m1^n / m > n ≥ 0}
 6. {u^mv^n / n = múltiplo de 2 y m <> múltiplo de 2 ó viceversa}
-7. {w^rx^sy^tz^u / r + t = s + u}
+7. {w^r x^s y^t z^u / r + t = s + u}
+      
+      r+t = wy  ww yy wy  wwyy 
+      s+u= xz   xx zz xz  zzxxzz
+      r+t = s+u == www =  xxx
+      
+      ORDEN = w x y z
+
+      L = {lamda, wx, wz, xy, yz, wxxy, wyzz, wxyz, wwxz, wwxx,yyzz, wwxxyyzz  ...    }
+
+      Misma cantidad de W que de X, misma cantidad de Y que de Z
+      S -> lamda | wSx | wXYz ∣ wSz ∣ xSy  ∣ yYz
+      X -> x | xX
+      Y -> y | yZ
+      Z -> z
+
+      S -> lamda   | wX  | wZ | wY  | xX | xY  | xZ  | yZ | yY 
+      W -> wYY | wWY | wXXY | wYZZ | wXYZ | wOXZ 
+      X -> x | wXX | xXY |      
+      Y -> yYZz | A           
+      Z -> z
+      O -> w
+      A -> y
+
 8. {x^ny^mz^k / k = m + n}
-9. {x^my^n / n y m son enteros no negativos y 2m ≥ n ≥ m}
+9.  {x^my^n / n y m son enteros no negativos y 2m ≥ n ≥ m}
 10. {a^(2k)b^(2n)c^kd^j / k, n, j ≥ 0}
 11. {x^ry^sz^t / t = r + s y r, s ≥ 1}
 12. {a^(2n)b^id^ke^(s+k) / n, i, k ≥ 0 y s > n} U {a^(2k)h^jd^(k+1) / k, j ≥ 0}
@@ -438,7 +461,7 @@ S → aSb → a(aSb)b → a(a(ab)b)b = aaabbbb
 33. {ww^(-1) / w,w^(-1) ∈ Σ*}  Σ = {a,b}
 34. {a^(2k)b^(2n)c^kd^j / k, n, j ≥ 0 } Ʃ = {a, b, c, d}
 
-9. {x^my^n / n y m son enteros no negativos y 2m ≥ n ≥ m}
+35. {x^my^n / n y m son enteros no negativos y 2m ≥ n ≥ m}
     La condición 2m>n>m significa:
       
       n>m m (más a's que b's)
